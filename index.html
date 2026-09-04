@@ -92,11 +92,13 @@
   @media(max-width:900px){.hero{grid-template-columns:1fr; padding:56px 0 40px}}
 
   .avatar-badge{
-    width:56px; height:56px; border-radius:12px; margin-bottom:20px;
+    width:148px; height:148px; border-radius:50%; margin-bottom:22px;
     display:flex; align-items:center; justify-content:center;
-    background:var(--panel); border:1px solid var(--line); position:relative; overflow:hidden;
+    background:var(--panel); border:3px solid var(--amber-dim); position:relative; overflow:hidden;
+    box-shadow:0 0 0 5px rgba(242,169,59,0.08), 0 10px 28px rgba(0,0,0,0.4);
   }
   .avatar-badge svg{width:100%; height:100%}
+  .avatar-badge img{width:100%; height:100%; object-fit:cover; display:block; border-radius:50%}
 
   .eyebrow{
     font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500;
@@ -178,6 +180,16 @@
   .live-metric b{color:var(--amber); font-weight:600; font-family:'IBM Plex Mono',monospace}
   .spark{flex-shrink:0}
 
+  .video-panel{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; margin-top:16px;
+  }
+  .video-box-hero{border:none; border-radius:0; background:transparent; padding:14px 18px 0}
+  .video-box-hero video{aspect-ratio:16/9}
+  .video-caption{
+    margin:10px 18px 16px; font-size:12px; line-height:1.6; color:var(--muted);
+  }
+
   /* ---------- SECTION SHELL ---------- */
   section{padding:64px 0; border-top:1px solid var(--line-soft)}
   .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:34px; flex-wrap:wrap}
@@ -246,6 +258,12 @@
   }
   .chart-box{
     border:1px solid var(--line-soft); border-radius:8px; background:var(--bg-2); padding:16px;
+  }
+  .video-box{
+    border:1px solid var(--line-soft); border-radius:8px; background:var(--bg-2); padding:10px;
+  }
+  .video-box video{
+    width:100%; display:block; border-radius:6px; background:#000; aspect-ratio:16/9;
   }
   .chart-title{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:10px}
   .chart-legend{display:flex; gap:14px; margin-top:10px; flex-wrap:wrap}
@@ -357,18 +375,7 @@
     <section class="hero" id="home" style="border-top:none">
       <div>
         <div class="avatar-badge reveal">
-          <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-            <rect width="56" height="56" fill="var(--panel)"/>
-            <circle cx="14" cy="14" r="1.6" fill="var(--line)"/>
-            <circle cx="42" cy="14" r="1.6" fill="var(--line)"/>
-            <circle cx="14" cy="42" r="1.6" fill="var(--line)"/>
-            <circle cx="42" cy="42" r="1.6" fill="var(--line)"/>
-            <line x1="14" y1="14" x2="28" y2="28" stroke="var(--line)" stroke-width="1"/>
-            <line x1="42" y1="14" x2="28" y2="28" stroke="var(--line)" stroke-width="1"/>
-            <line x1="14" y1="42" x2="28" y2="28" stroke="var(--line)" stroke-width="1"/>
-            <line x1="42" y1="42" x2="28" y2="28" stroke="var(--line)" stroke-width="1"/>
-            <text x="28" y="34" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="20" fill="var(--amber)">VP</text>
-          </svg>
+          <img src="Profile_Pic_Updated.png" alt="Vishal Kumar Puri">
         </div>
         <div class="eyebrow">OPERATOR STATUS: AVAILABLE</div>
         <h1 class="display">Vishal Kumar Puri</h1>
@@ -394,6 +401,7 @@
         </div>
       </div>
 
+      <div>
       <div class="live-panel reveal">
         <div class="live-panel-head">
           <span>MONITORED_SYSTEMS.LOG</span>
@@ -435,6 +443,21 @@
             <polyline points="0,6 9,10 18,13 27,11 36,17 45,15 54,20 64,22" fill="none" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
+      </div>
+
+      <div class="video-panel reveal">
+        <div class="live-panel-head">
+          <span>WAVE_SMART_CITY.DEMO</span>
+          <span class="live-tag"><span class="live-dot"></span>WALKTHROUGH</span>
+        </div>
+        <div class="video-box video-box-hero">
+          <video controls preload="metadata" playsinline>
+            <source src="Wave_Smart_City.mp4" type="video/mp4">
+            Your browser doesn't support embedded video. <a href="Wave_Smart_City.mp4">Download the clip</a> instead.
+          </video>
+        </div>
+        <p class="video-caption">A screen recording of the three systems above running live in AVEVA OMI, from an operator's view.</p>
+      </div>
       </div>
     </section>
 
